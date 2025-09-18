@@ -8,14 +8,14 @@ import pandas as pd
 
 
 # Загружаем данные из таблицы
-data = pd.read_csv('table.csv')
+df = pd.read_csv('table.csv')
 
 # Извлекаем данные для обучени, объединяем категорию трат и стоимость
-expenses_data = data['spending_category'] + " " + data['price'].astype(str) 
-labels = data['importance']
+data = df['spending_category'] + " " + df['price'].astype(str) 
+labels = df['importance']
 
 # Разделяем данные
-text_train, text_test, y_train, y_test = train_test_split(expenses_data, labels, test_size=0.2, random_state=42)
+text_train, text_test, y_train, y_test = train_test_split(data, labels, test_size=0.2, random_state=42)
 
 # Создаем векторизатор и модель наивного Байеса 
 pipe = make_pipeline(
