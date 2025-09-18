@@ -22,7 +22,7 @@ text_train, text_test, y_train, y_test = train_test_split(
 # Создаем векторизатор и модель наивного Байеса 
 pipe = make_pipeline(
     CountVectorizer(ngram_range=(1,2), min_df=1),
-    MultinomialNB(alpha=0.1)
+    MultinomialNB()
 )
 
 # Обучаем модель
